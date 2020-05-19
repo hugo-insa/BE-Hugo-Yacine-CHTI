@@ -388,11 +388,6 @@
               <FilePath>.\Src\principal.c</FilePath>
             </File>
             <File>
-              <FileName>Calcul_dft.s</FileName>
-              <FileType>2</FileType>
-              <FilePath>.\Calcul_dft.s</FilePath>
-            </File>
-            <File>
               <FileName>f1p-45.asm</FileName>
               <FileType>2</FileType>
               <FilePath>.\Test\f1p-45.asm</FilePath>
@@ -416,6 +411,11 @@
               <FileName>trigo.asm</FileName>
               <FileType>2</FileType>
               <FilePath>.\Test\trigo.asm</FilePath>
+            </File>
+            <File>
+              <FileName>Calcul_dft.s</FileName>
+              <FileType>2</FileType>
+              <FilePath>.\Src\Calcul_dft.s</FilePath>
             </File>
           </Files>
         </Group>
