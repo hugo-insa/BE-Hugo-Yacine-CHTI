@@ -3,7 +3,7 @@
  * Auto generated Run-Time-Environment Configuration File
  *      *** Do not modify ! ***
  *
- * Project: 'Etape4' 
+ * Project: 'Objectif3' 
  * Target:  'Simu' 
  */
 
