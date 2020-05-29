@@ -3,11 +3,14 @@
 int M2(int, unsigned short *);	
 unsigned short dma_buf[64]; 
 int compteurs[6]={0,0,0,0,0,0};
+int score[6]={0,0,0,0,0,0};
+int pistolet;
 //int aux[6] = {17,18,19,20,22,23} ; 
 int SYSTICK_PER = 5*72000; //5ms en ticks d'horloge à 72MHz
 int M2TIR = 985661 ; 
 extern	unsigned short TabSig[64];
 int k ; 
+
 //int max = -1000000000 ; 
 //int min = 1000000000 ; 
 
@@ -37,21 +40,27 @@ void sys_callback() {
 			switch(k) {
                 case 17:
                     compteurs[0]++;
+										pistolet = 0;
                     break;
                 case 18:
                     compteurs[1]++;
+										pistolet = 1;
                     break;
                 case 19:
                     compteurs[2]++;
+										pistolet = 2;
                     break;
                 case 20:
                     compteurs[3]++;
+								    pistolet = 3;
                     break;
                 case 23:
                     compteurs[4]++;
+										pistolet = 4;
                     break;
                 case 24:
                     compteurs[5]++;
+										pistolet = 5;
                     break;
 							}
 			
@@ -110,15 +119,23 @@ int main(void)
 	Systick_Prio_IT( 3, sys_callback );
 	SysTick_On;
 	SysTick_Enable_IT;
-		
+	
+	int passe = 0;
 	while (1) {
-		for (int j = 0; j < 6; j++){
+		/*for (int j = 0; j < 6; j++){
 			if (compteurs[j]>=3){
 				GPIO_Set(GPIOB, 14);
 			}
 			else if(compteurs[j] == 0){
 				GPIO_Clear(GPIOB, 14);
 			}
+		}*/
+		if (compteurs[pistolet] == 7 && passe == 0){
+			score[pistolet]++;
+			passe = 1;
+		}
+		if (compteurs[pistolet] == 8){
+			passe = 0;
 		}
 	}
 }
